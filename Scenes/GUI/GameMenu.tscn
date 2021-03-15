@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GUI/GameMenu.gd" type="Script" id=1]
+
+[node name="GameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -180.0
+margin_right = 128.0
+margin_bottom = -88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 20.0
+text = "Start Game"
+
+[node name="LoadGame" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 256.0
+margin_bottom = 44.0
+text = "Load Game"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 256.0
+margin_bottom = 68.0
+text = "Options"
+
+[node name="QuitGame" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 92.0
+text = "Quit Game"
+[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_LoadGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitGame" to="." method="_on_QuitGame_pressed"]
