@@ -13,3 +13,8 @@ The codebase does NOT include:
 - A character to play as - this was just too complicated given that people have different needs for physics and controls
 - Any enemies for the player
 - Any collectibles for the given level
+
+
+# To Use this Project
+
+
