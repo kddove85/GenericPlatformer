@@ -1,6 +1,6 @@
 extends Node
 
-var current_scene
+var scene_to_delete
 var next_scene
 
 var fade_screen
@@ -20,7 +20,7 @@ func _ready():
 	get_tree().get_root().call_deferred("add_child", splash)
 
 func on_switch_scene():
-	get_tree().get_root().get_node(current_scene).queue_free()
+	get_tree().get_root().get_node(scene_to_delete).queue_free()
 	get_tree().get_root().call_deferred("add_child", next_scene)
 	
 func on_splash_complete():
@@ -30,14 +30,19 @@ func on_splash_complete():
 	menu.connect("load_options", self, "on_load_options")
 	menu.connect("quit_game", self, "on_quit_game")
 	next_scene = menu
-	current_scene = splash.name
+	scene_to_delete = splash.name
 	fade_screen.fade_out()
 	
 func on_start_game():
-	current_scene = menu.name
+	# if your game has an overworld and you start there, use this code
+#	world = load("res://Scenes/World/World.tscn").instance()
+#	next_scene = world
+	
+	# else use this
+	scene_to_delete = menu.name
 	enter_level("01")
-#	world = load("world")
-
+	fade_screen.fade_out()
+	
 func on_load_game():
 	pass
 	
@@ -47,15 +52,15 @@ func on_load_options():
 func on_quit_game():
 	get_tree().quit()
 	
-func on_menu_complete():
-	menu.queue_free()
+#func on_menu_complete():
+#	menu.queue_free()
 
 func on_load_level():
 	enter_level("01")
 	
 func enter_level(name):
 	if current_level:
-		current_scene = current_level
+		scene_to_delete = current_level
 		
 	current_level = load("res://Scenes/Levels/Level" + name + ".tscn").instance()
 	next_scene = current_level
