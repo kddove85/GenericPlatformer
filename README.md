@@ -17,4 +17,11 @@ The codebase does NOT include:
 
 # To Use this Project
 
-
+1. Go to your page and click 'New Repository'
+2. Where it says "Repository Template" select "GenericPlatformer"
+3. Click "Create Repository"
+4. Check out your new repository on your local computer
+5. Open Godot
+6. Click Import
+7. Navigate to your repository
+8. Select the .project file and click "Open"
